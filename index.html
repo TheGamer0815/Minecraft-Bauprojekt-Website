@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ECHO-7 Bauplaner</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Persönlicher Bauplaner für das Minecraft-Projekt ECHO-7: interaktives 3D-Modell, Bauanleitung in 9 Phasen, Schichtpläne, Materialliste und Fortschritt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "./vendor/three/three.module.min.js",
+  "three/addons/controls/OrbitControls.js": "./vendor/three/OrbitControls.js"
+} }
+</script>
+</head>
+<body>
+<header class="console">
+  <div class="console-inner">
+    <a class="brand" href="#overview" aria-label="ECHO-7 Startseite">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="3" y="15" width="26" height="12" fill="none" stroke="currentColor" stroke-width="2"/>
+        <rect x="9" y="8" width="11" height="7" fill="none" stroke="currentColor" stroke-width="2"/>
+        <ellipse cx="24" cy="9" rx="5" ry="2" fill="none" stroke="var(--hazard)" stroke-width="2"/>
+        <path d="M14 8V2" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">ECHO-7</span>
+        <span class="brand-sub">Research Outpost · Bauplaner</span>
+      </span>
+    </a>
+    <nav class="tabs" aria-label="Hauptnavigation">
+      <a href="#overview" data-view="overview">Overview</a>
+      <a href="#blueprint" data-view="blueprint">3D Blueprint</a>
+      <a href="#guide" data-view="guide">Build Guide</a>
+      <a href="#materials" data-view="materials">Materials</a>
+      <a href="#progress" data-view="progress">Progress</a>
+    </nav>
+    <div class="sys" aria-live="polite">
+      <span class="sys-item" id="sys-store" title="Speicherstatus"><i class="led"></i><span>Lokal gespeichert</span></span>
+      <span class="sys-item">Gebaut <b id="sys-progress" class="mono">0,0 %</b></span>
+      <span class="sys-item mono" id="sys-clock">--:--</span>
+    </div>
+  </div>
+  <div class="console-rule" aria-hidden="true"><span class="hazard"></span></div>
+</header>
+
+<main id="app">
+  <section class="view" id="view-overview" data-view="overview" aria-label="Overview"></section>
+  <section class="view" id="view-blueprint" data-view="blueprint" aria-label="3D Blueprint"></section>
+  <section class="view" id="view-guide" data-view="guide" aria-label="Build Guide"></section>
+  <section class="view" id="view-materials" data-view="materials" aria-label="Materials"></section>
+  <section class="view" id="view-progress" data-view="progress" aria-label="Progress"></section>
+  <noscript><p class="noscript">Der Bauplaner benötigt JavaScript und WebGL.</p></noscript>
+</main>
+
+<div class="toast" id="toast" role="status" hidden></div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
